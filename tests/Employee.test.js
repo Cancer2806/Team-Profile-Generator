@@ -17,5 +17,36 @@ describe("Employee", () => {
 
       expect("email" in employeeObj).toEqual(true);
     });
+    it("should return an object matching the name, id and email when called with 'new' keyword", () => {
+      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+
+      const testObj = {
+        name: 'Roger That',
+        id: 'N33756',
+        email: 'Roger@that.com.au'
+      }
+
+      expect(employeeObj).toEqual(testObj);
+    });
+    it("should return the employee's name", () => {
+      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+
+      expect(employeeObj.getName()).toEqual('Roger That');
+    });
+    it("should return the employee's id", () => {
+      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+
+      expect(employeeObj.getId()).toEqual('N33756');
+    });
+    it("should return the employee's email", () => {
+      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+
+      expect(employeeObj.getEmail()).toEqual('Roger@that.com.au');
+    });
+    it("should return the employee's category", () => {
+      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+
+      expect(employeeObj.getRole()).toEqual('Employee');
+    });
   });
 });
