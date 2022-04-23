@@ -1,6 +1,6 @@
 
 function getEmployees(employees) {
-  return employees[0].getRole() + employees[1].name;
+  return employees[0].getRole() + employees[0].getName();
 }
 
 function generateHTML(employees) {
@@ -9,7 +9,19 @@ function generateHTML(employees) {
 // email opens default email program and populates the To field with the address
   
 
-  return `HTML markdown file with great big gobs of data including
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css"></link>
+  <title>Team Profile</title>
+</head>
+<body>
+  
+</body>
+</html>
   
   ${getEmployees(employees)}`;
 }
