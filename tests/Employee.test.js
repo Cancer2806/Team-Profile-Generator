@@ -29,9 +29,10 @@ describe("Employee", () => {
       expect(employeeObj).toEqual(testObj);
     });
     it("should return the employee's name", () => {
-      const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');
+      const value = "Roger"
+      const employeeObj = new Employee(value);
 
-      expect(employeeObj.getName()).toEqual('Roger That');
+      expect(employeeObj.getName()).toEqual(value);
     });
     it("should return the employee's id", () => {
       const employeeObj = new Employee('Roger That', 'N33756', 'Roger@that.com.au');

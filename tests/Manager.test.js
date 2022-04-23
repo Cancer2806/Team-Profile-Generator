@@ -23,17 +23,17 @@ describe("Manager", () => {
       expect("officeNumber" in ManagerObj).toEqual(true);
     });
     it("should return an object matching the name, id and email when called with 'new' keyword", () => {
-      const ManagerObj = new Manager('Roger Boss', 'M100100', 'Boss@that.com.au', '9804 7600');
-
       const testObj = {
         name: 'Roger Boss',
         id: 'M100100',
         email: 'Boss@that.com.au',
         officeNumber: '9804 7600',
       };
+      const ManagerObj = new Manager('Roger Boss', 'M100100', 'Boss@that.com.au', '9804 7600');
 
       expect(ManagerObj).toEqual(testObj);
     });
+    
     it("should return the Manager's name", () => {
       const ManagerObj = new Manager('Roger Boss', 'M100100', 'Boss@that.com.au', '9804 7600');
 
