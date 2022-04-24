@@ -41,7 +41,7 @@ function getEmployeeInfo(role) {
     {
       name: "github",
       type: "input",
-      message: `Please enter the Github address of the ${role}`,
+      message: `Please enter the Github username of the ${role}`,
       when: role === 'Engineer',
     },
     // For inter, enter the intern's school
@@ -84,7 +84,15 @@ function getEmployeeInfo(role) {
       return getEmployeeInfo('Intern');
     } else {
       //If finish building team, generate html file
-      return writeToFile('index.html', employees);
+      return writeToFile('index.html', employees.sort(function (a, b) {
+        if (a.constructor.name === 'Manager') {
+          return -1;
+        } else if (b.constructor.name === 'Manager') {
+          return 1;
+        } else if (a.constructor.name > b.constructor.name) {
+          return 1;
+        } else { return -1; }
+      }));
     }
   })
     .catch((error) => {

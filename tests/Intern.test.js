@@ -57,7 +57,7 @@ describe("Intern", () => {
     it("should return the Intern's category", () => {
       const internObj = new Intern('New Junior', 'I665544', 'Intern@that.com.au', 'Scarborough');
 
-      expect(internObj.getRole()).toEqual('Intern');
+      expect(internObj.getRole()).toEqual('☕ Intern');
     });
   });
 });

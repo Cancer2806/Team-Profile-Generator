@@ -57,7 +57,7 @@ describe("Engineer", () => {
     it("should return the Engineer's category", () => {
       const EngineerObj = new Engineer('Engineer Bob', 'E887766', 'Engineer@that.com.au', 'Cancer2806');
 
-      expect(EngineerObj.getRole()).toEqual('Engineer');
+      expect(EngineerObj.getRole()).toEqual('🚂 Engineer');
     });
   });
 });

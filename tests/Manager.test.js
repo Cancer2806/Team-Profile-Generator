@@ -57,7 +57,7 @@ describe("Manager", () => {
     it("should return the Manager's category", () => {
       const ManagerObj = new Manager('Roger Boss', 'M100100', 'Boss@that.com.au', '9804 7600');
 
-      expect(ManagerObj.getRole()).toEqual('Manager');
+      expect(ManagerObj.getRole()).toEqual('🧑🏼‍💼 Manager');
     });
   });
 });

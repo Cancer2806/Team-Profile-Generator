@@ -1,14 +1,42 @@
 
 function getEmployees(employees) {
-  return employees[0].getRole() + employees[0].getName();
+  let resultStr = "";
+
+  employees.forEach(employee => {
+    resultStr = resultStr + `<div class="card-body">
+    <div class="card-title">
+      <h2>${employee.getName()}</h2>
+      <h2>${employee.getRole()}</h2>
+      </div>
+      <ul class="card-list">
+        <li>ID:  ${employee.getId()}</li>
+        <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
+        <li>${specialEmployee(employee)}</li>
+      </ul>
+  </div>`
+  });
+  return resultStr;
 }
 
-function generateHTML(employees) {
-  
-// inc Github links to Github page
-// email opens default email program and populates the To field with the address
-  
+function specialEmployee(employee) {
+  let roleEmployee = employee.getRole();
+  let special = ""
+  switch (roleEmployee) {
+    case '🧑🏼‍💼 Manager':
+      special = `Office Number:  ${employee.getOfficeNumber()}`;
+      break;
+    case '🚂 Engineer':
+      // link opens Github page on new tab
+      special = `Github:  <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;
+      break;
+    default:
+      special = `School:  ${employee.getSchool()}`;
+  };
+  return special;
+};
 
+
+function generateHTML(employees) {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +66,8 @@ function generateHTML(employees) {
         </div>
       </div>
 
+      ${getEmployees(employees)}
+
       <div class="card-body">
         <div class="card-title">
           <h2>Alec</h2>
@@ -66,8 +96,7 @@ function generateHTML(employees) {
     </div>
   </main>
 </body>
-</html>
-  ${getEmployees(employees)}`;
+</html>`;
 }
 
 
