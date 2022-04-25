@@ -1,23 +1,25 @@
-
+// Function to generate the card of each employee
 function getEmployees(employees) {
   let resultStr = "";
 
   employees.forEach(employee => {
-    resultStr = resultStr + `<div class="card-body">
-    <div class="card-title">
-      <h2>${employee.getName()}</h2>
-      <h2>${employee.getRole()}</h2>
+    resultStr = resultStr + 
+    `<div class="card-body">
+      <div class="card-title">
+        <h2>${employee.getName()}</h2>
+        <h2>${employee.getRole()}</h2>
       </div>
       <ul class="card-list">
         <li>ID:  ${employee.getId()}</li>
         <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
         <li>${specialEmployee(employee)}</li>
       </ul>
-  </div>`
+    </div>`
   });
   return resultStr;
 }
 
+// Function to generate sub-class specific items of an employees' card
 function specialEmployee(employee) {
   let roleEmployee = employee.getRole();
   let special = ""
@@ -35,7 +37,7 @@ function specialEmployee(employee) {
   return special;
 };
 
-
+// Function to generate the index.html file
 function generateHTML(employees) {
   return `<!DOCTYPE html>
 <html lang="en">
@@ -52,52 +54,11 @@ function generateHTML(employees) {
   </Header>
   <main>
     <div class="card-container">
-      <div class="card-body">
-        <div class="card-title">
-          <h2>Jared</h2>
-          <h2>🧑🏼‍💼 Manager</h2>
-          <div class="card-list">
-            <ul>
-              <li>ID:12</li>
-              <li>Email: Johnny@blackburn.com.au</li>
-              <li>Office Number: 9776 2049</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      ${getEmployees(employees)}
-
-      <div class="card-body">
-        <div class="card-title">
-          <h2>Alec</h2>
-          <h2>🚂 Engineer</h2>
-          <div class="card-list">
-            <ul>
-              <li>ID:15</li>
-              <li>Email: Engineer@blackburn.com.au</li>
-              <li>Github: Github goes here</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="card-body">
-        <div class="card-title">
-          <h2>John</h2>
-          <h2>☕ Intern</h2>
-          <ul class="card-list">
-            <li>ID:5</li>
-            <li>Email: Intern@blackburn.com.au</li>
-            <li>School: Scarborough</li>
-          </ul>
-        </div>
-      </div>
+       ${getEmployees(employees)}
     </div>
   </main>
 </body>
 </html>`;
 }
-
 
 module.exports = generateHTML;

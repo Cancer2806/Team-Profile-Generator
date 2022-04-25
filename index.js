@@ -1,4 +1,4 @@
-// call Required Modules
+// link Required Modules
 const fs = require('fs');
 const inquirer = require('inquirer');
 
@@ -10,6 +10,7 @@ const generateHTML = require('./src/generateHTML');
 
 let employees = [];
 
+// Function to gather Team employee information from the command line
 function getEmployeeInfo(role) {
 
   return inquirer.prompt([
@@ -44,7 +45,7 @@ function getEmployeeInfo(role) {
       message: `Please enter the Github username of the ${role}`,
       when: role === 'Engineer',
     },
-    // For inter, enter the intern's school
+    // For intern, enter the intern's school
     {
       name: "school",
       type: "input",
@@ -52,7 +53,7 @@ function getEmployeeInfo(role) {
       when: role === 'Intern',
     },
 
-    // Present options to add an engineer, add an intern or finish building team
+    // Present options to add an engineer, add an intern or finish building the team
     {
       name: "nextStep",
       type: "list",
@@ -77,13 +78,13 @@ function getEmployeeInfo(role) {
       employees.push(new Intern(responses.employeeName, responses.employeeID, responses.email, responses.school));
     };
 
-
+    // code to process whether User wishes to enter another team member or complete the process
     if (responses.nextStep === 'Engineer') {
       return getEmployeeInfo('Engineer');
     } else if (responses.nextStep === 'Intern') {
       return getEmployeeInfo('Intern');
     } else {
-      //If finish building team, generate html file
+      //If finished building team, generate html file, after sorting employees by category, keeping the Manager at the front
       return writeToFile('index.html', employees.sort(function (a, b) {
         if (a.constructor.name === 'Manager') {
           return -1;
@@ -100,6 +101,7 @@ function getEmployeeInfo(role) {
     })
 }
 
+// Function to generate and save the HTML file
 function writeToFile(fileName, employees) {
   const fileContent = generateHTML(employees);
 
@@ -112,5 +114,5 @@ function writeToFile(fileName, employees) {
 };
 
 // Function call to initialise app
-// When application starts, enter team manager's name, employee ID, email address and office number
+// Application starts by entering the Team Leader (Manager)
 getEmployeeInfo('Manager');
