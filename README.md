@@ -34,7 +34,8 @@ The application allows entry of a project team's members at the command line and
 
   The application can be found at:  https://github.com/Cancer2806/Team-Profile-Generator  
   An example of the index.html and accompanying style.css file can be found at:  https://github.com/Cancer2806/Team-Profile-Generator/tree/main/dist  
-  A Walkthrough video is provided at:  
+  It can also be found here:  https://drive.google.com/drive/folders/1ty_-B882CnXio886zunWMFZI8pT8xlfl?usp=sharing    
+  A Walkthrough video is provided at:  https://drive.google.com/file/d/1JGQ7BAFS0XCF3yKwOfasUjYUx4zecGKo/view?usp=sharing  
   
 
 ## Features  
