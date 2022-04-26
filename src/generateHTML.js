@@ -14,7 +14,8 @@ function getEmployees(employees) {
         <li>Email: <a href="mailto:${employee.getEmail()}">${employee.getEmail()}</a></li>
         <li>${specialEmployee(employee)}</li>
       </ul>
-    </div>`
+    </div>
+    `
   });
   return resultStr;
 }
