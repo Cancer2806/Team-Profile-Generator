@@ -7,7 +7,7 @@ function getEmployees(employees) {
     `<div class="card-body">
       <div class="card-title">
         <h2>${employee.getName()}</h2>
-        <h2>${employee.getRole()}</h2>
+        <h2>${roleEmployee(employee)}</h2>
       </div>
       <ul class="card-list">
         <li>ID:  ${employee.getId()}</li>
@@ -19,15 +19,33 @@ function getEmployees(employees) {
   return resultStr;
 }
 
+// Function to generate role sub-title on an employees' card
+function roleEmployee(employee) {
+  let roleEmployee = employee.getRole();
+  let subTitle = ""
+  switch (roleEmployee) {
+    case 'Manager':
+      subTitle = `🧑🏼‍💼 ${roleEmployee}`;
+      break;
+    case 'Engineer':
+      // link opens Github page on new tab
+      subTitle = `🚂 ${roleEmployee}`;
+      break;
+    default:
+      subTitle = `☕ ${roleEmployee}`;
+  };
+  return subTitle;
+};
+
 // Function to generate sub-class specific items of an employees' card
 function specialEmployee(employee) {
   let roleEmployee = employee.getRole();
   let special = ""
   switch (roleEmployee) {
-    case '🧑🏼‍💼 Manager':
+    case 'Manager':
       special = `Office Number:  ${employee.getOfficeNumber()}`;
       break;
-    case '🚂 Engineer':
+    case 'Engineer':
       // link opens Github page on new tab
       special = `Github:  <a href="https://github.com/${employee.getGithub()}" target="_blank">${employee.getGithub()}</a>`;
       break;
